@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Información Personal - Patu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { patu: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 pb-8">
+
+    <header class="sticky top-0 z-50 glass-effect border-b border-gray-100">
+        <div class="px-4 py-3">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-4 flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2 cursor-pointer">
+                        <div class="w-10 h-10 bg-patu-500 rounded-lg flex items-center justify-center shadow-sm">
+                            <span class="text-white font-bold text-xl">P</span>
+                        </div>
+                        <span class="font-bold text-2xl text-patu-600 tracking-tight hidden lg:block">Patu</span>
+                    </a>
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-700 hover:text-patu-600 font-medium">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                            <span class="text-sm hidden md:block">Categorías</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 max-w-3xl relative">
+                    <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 gap-3 border border-transparent focus-within:border-patu-300 focus-within:bg-white transition-all shadow-sm">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                        <input type="text" placeholder="Buscar productos, marcas y más..." class="flex-1 bg-transparent outline-none text-sm text-gray-800 placeholder-gray-400 w-full py-1">
+                        <button class="p-1 hover:bg-gray-200 rounded-full transition-colors"><i data-lucide="camera" class="w-5 h-5 text-patu-500"></i></button>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1 md:gap-3 flex-shrink-0">
+                    <button class="hidden sm:flex items-center gap-1.5 bg-patu-500 text-white hover:bg-patu-600 px-4 py-2 rounded-full text-sm font-semibold transition-colors shadow-sm mr-2">
+                        <i data-lucide="package" class="w-4 h-4"></i>
+                        <span class="hidden md:block">Mayoristas</span>
+                    </button>
+                    <a href="profile.html" class="p-2 bg-patu-50 rounded-full transition-colors relative group">
+                        <i data-lucide="user" class="w-6 h-6 text-patu-600"></i>
+                    </a>
+                    <button class="p-2 hover:bg-gray-100 rounded-full transition-colors relative group" onclick="openCart()">
+                        <i data-lucide="shopping-cart" class="w-6 h-6 text-gray-700"></i>
+                        <span id="cartBadge" class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full border border-white hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-6">
+            
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden sticky top-24">
+                    <a href="profile.html">
+                        <div class="p-6 border-b border-gray-100 flex items-center gap-4 hover:bg-gray-50 transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-tr from-patu-400 to-patu-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-inner">
+                                EP
+                            </div>
+                            <div>
+                                <h2 class="font-bold text-gray-900">Elsa Pato</h2>
+                                <p class="text-xs text-gray-500">esla_pato21@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    <nav class="p-3 space-y-1">
+                        <a href="personal.html" class="flex items-center gap-3 px-4 py-3 bg-patu-50 text-patu-600 rounded-xl font-medium transition-colors">
+                            <i data-lucide="user" class="w-5 h-5"></i> Información Personal
+                        </a>
+                        <a href="cuenta.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-colors">
+                            <i data-lucide="shield" class="w-5 h-5"></i> Datos de la Cuenta
+                        </a>
+                        <a href="pedidos.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-colors">
+                            <i data-lucide="package" class="w-5 h-5"></i> Mis Pedidos
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-colors">
+                            <i data-lucide="heart" class="w-5 h-5"></i> Favoritos
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i> Mis Direcciones
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-colors">
+                            <i data-lucide="credit-card" class="w-5 h-5"></i> Métodos de Pago
+                        </a>
+                        <div class="border-t border-gray-100 my-2"></div>
+                        <a href="#" class="flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl font-medium transition-colors">
+                            <i data-lucide="log-out" class="w-5 h-5"></i> Cerrar Sesión
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <div class="flex-1 space-y-6">
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                    <h3 class="font-bold text-xl text-gray-900 mb-1">Información Personal</h3>
+                    <p class="text-sm text-gray-500 mb-6">Actualiza tus datos para agilizar tus compras y envíos.</p>
+
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombres</label>
+                                <input type="text" value="Elsa" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Apellidos</label>
+                                <input type="text" value="Pato" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Documento</label>
+                                <select class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm transition-all">
+                                    <option selected>DNI</option>
+                                    <option>Carné de Extranjería (CE)</option>
+                                    <option>Pasaporte</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Número de Documento</label>
+                                <input type="text" value="76543210" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono Móvil</label>
+                                <input type="tel" value="+51 987 654 321" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de Nacimiento</label>
+                                <input type="date" class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-patu-500 focus:border-transparent text-sm text-gray-600 transition-all">
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex justify-end">
+                            <button type="button" class="px-6 py-3 bg-patu-500 hover:bg-patu-600 active:scale-95 text-white font-semibold rounded-xl transition-all shadow-md text-sm">
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="cartDrawer" class="fixed inset-0 z-[60] hidden"></div>
+    <script src="./script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

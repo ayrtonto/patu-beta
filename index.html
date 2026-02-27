@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Patu - Mercado de Gamarra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        patu: {
+                            50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74',
+                            400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c',
+                            800: '#9a3412', 900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 pb-8">
+
+<header class="sticky top-0 z-50 glass-effect border-b border-gray-100">
+        <div class="px-4 py-3">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+                
+                <div class="flex items-center gap-2 md:gap-4 flex-shrink-0">
+                    <div class="flex items-center gap-2 cursor-pointer">
+                        <div class="w-10 h-10 bg-patu-500 rounded-lg flex items-center justify-center shadow-sm">
+                            <span class="text-white font-bold text-xl">P</span>
+                        </div>
+                        <span class="font-bold text-2xl text-patu-600 tracking-tight hidden lg:block">Patu</span>
+                    </div>
+
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-700 hover:text-patu-600 font-medium">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                            <span class="text-sm hidden md:block">Categorías</span>
+                        </button>
+                        
+                        <div class="absolute top-full left-0 mt-1 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+                            <div class="py-2">
+                                <a href="#" class="flex items-center justify-between px-4 py-2.5 hover:bg-patu-50 text-sm text-gray-700 hover:text-patu-600 transition-colors">
+                                    <div class="flex items-center gap-3"><i data-lucide="shirt" class="w-4 h-4"></i> Ropa Mujer</div>
+                                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-4 py-2.5 hover:bg-patu-50 text-sm text-gray-700 hover:text-patu-600 transition-colors">
+                                    <div class="flex items-center gap-3"><i data-lucide="user-check" class="w-4 h-4"></i> Ropa Hombre</div>
+                                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-4 py-2.5 hover:bg-patu-50 text-sm text-gray-700 hover:text-patu-600 transition-colors">
+                                    <div class="flex items-center gap-3"><i data-lucide="smartphone" class="w-4 h-4"></i> Tecnología</div>
+                                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-4 py-2.5 hover:bg-patu-50 text-sm text-gray-700 hover:text-patu-600 transition-colors">
+                                    <div class="flex items-center gap-3"><i data-lucide="home" class="w-4 h-4"></i> Hogar</div>
+                                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+                                </a>
+                                <div class="border-t border-gray-100 my-1"></div>
+                                <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-50 text-sm text-patu-600 font-medium">
+                                    Ver todas las categorías
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 max-w-3xl relative">
+                    <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 gap-3 border border-transparent focus-within:border-patu-300 focus-within:bg-white transition-all shadow-sm">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                        <input type="text" placeholder="Buscar productos, marcas y más..." class="flex-1 bg-transparent outline-none text-sm text-gray-800 placeholder-gray-400 w-full py-1">
+                        <div class="flex items-center gap-2 border-l border-gray-300 pl-2">
+                            <button class="p-1 hover:bg-gray-200 rounded-full transition-colors" onclick="triggerImageSearch()">
+                                <i data-lucide="camera" class="w-5 h-5 text-patu-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1 md:gap-3 flex-shrink-0">
+                    
+                    <button class="hidden sm:flex items-center gap-1.5 bg-patu-500 text-white hover:bg-patu-600 px-4 py-2 rounded-full text-sm font-semibold transition-colors shadow-sm mr-2">
+                        <i data-lucide="package" class="w-4 h-4"></i>
+                        <span class="hidden md:block">Mayoristas</span>
+                    </button>
+                    
+                    <a href="./profile.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors relative group">
+                        <i data-lucide="user" class="w-6 h-6 text-gray-700 group-hover:text-patu-600 transition-colors"></i>
+                    </a>
+                    
+                    <button class="p-2 hover:bg-gray-100 rounded-full transition-colors relative group" onclick="openCart()">
+                        <i data-lucide="shopping-cart" class="w-6 h-6 text-gray-700 group-hover:text-patu-600 transition-colors"></i>
+                        <span id="cartBadge" class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-white hidden">0</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="relative w-full h-48 md:h-64 lg:h-80 overflow-hidden" id="mainCarousel">
+        <div class="flex transition-transform duration-500 h-full w-full" id="carouselInner">
+            <div class="min-w-full h-full bg-gradient-to-r from-patu-500 to-patu-600 flex items-center justify-center p-6 text-white relative">
+                <div class="absolute right-0 top-0 h-full w-1/2 bg-white/10 skew-x-12 transform origin-top-right"></div>
+                <div class="relative z-10 text-center md:text-left md:w-full md:max-w-4xl md:px-8">
+                    <span class="inline-block px-2 py-1 bg-white/20 text-xs font-semibold rounded mb-2">Envíos a todo Perú</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Gamarra Digital</h2>
+                    <p class="text-sm md:text-base text-patu-100 mb-4 max-w-sm mx-auto md:mx-0">Directo de las mejores galerías a la puerta de tu casa o negocio.</p>
+                    <button class="bg-white text-patu-600 px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-gray-50 active:scale-95 transition-all">Explorar ahora</button>
+                </div>
+            </div>
+            <div class="min-w-full h-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center p-6 text-white relative">
+                <div class="relative z-10 text-center md:text-left md:w-full md:max-w-4xl md:px-8">
+                    <span class="inline-block px-2 py-1 bg-white/20 text-xs font-semibold rounded mb-2">Nueva Colección</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Temporada Invierno</h2>
+                    <p class="text-sm md:text-base text-blue-100 mb-4 max-w-sm mx-auto md:mx-0">Descubre casacas, poleras y abrigos al por mayor.</p>
+                    <button class="bg-white text-blue-600 px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-gray-50 active:scale-95 transition-all">Ver catálogo</button>
+                </div>
+            </div>
+        </div>
+        
+        <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow backdrop-blur transition-all" onclick="prevSlide()">
+            <i data-lucide="chevron-left" class="w-5 h-5 text-gray-800"></i>
+        </button>
+        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white p-2 rounded-full shadow backdrop-blur transition-all" onclick="nextSlide()">
+            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-800"></i>
+        </button>
+        
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+            <button class="w-2 h-2 rounded-full bg-white transition-all" id="dot-0" onclick="goToSlide(0)"></button>
+            <button class="w-2 h-2 rounded-full bg-white/50 transition-all" id="dot-1" onclick="goToSlide(1)"></button>
+        </div>
+    </div>
+
+    <main class="px-4 pt-6 space-y-8 max-w-7xl mx-auto">
+
+        <section class="bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl p-4 md:p-5 text-white shadow-md mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="zap" class="w-6 h-6 fill-white"></i>
+                    <h3 class="font-bold text-xl md:text-2xl">Ofertas Flash</h3>
+                </div>
+                <div class="flex items-center gap-1 bg-white/20 px-3 py-1.5 rounded-lg text-sm md:text-base font-mono backdrop-blur">
+                    <span id="hours">02</span>:<span id="minutes">45</span>:<span id="seconds">30</span>
+                </div>
+            </div>
+            
+            <div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-2 px-2">
+                
+                <div class="flex-shrink-0 w-36 md:w-44 bg-white rounded-xl p-2.5 text-gray-900 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative" onclick="window.location.href='producto.html'">
+                    <div class="relative mb-3 aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Polo Negro Hombre">
+                        <span class="absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-2 py-1 rounded-full shadow-md">-50%</span>
+                    </div>
+                    <h4 class="text-sm font-semibold leading-tight mb-1.5 line-clamp-2 group-hover:text-patu-600 transition-colors">Camiseta Polo Negro Básico 100% Algodón</h4>
+                    <div class="flex items-end gap-2 mb-2">
+                        <p class="text-lg font-bold text-patu-600 leading-none">S/ 19.90</p>
+                        <p class="text-xs text-gray-400 line-through leading-none mb-0.5">S/ 39.90</p>
+                    </div>
+                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-1.5 text-center font-medium">Quedan pocos</p>
+                </div>
+
+                <div class="flex-shrink-0 w-36 md:w-44 bg-white rounded-xl p-2.5 text-gray-900 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative mb-3 aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Zapatillas">
+                        <span class="absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-2 py-1 rounded-full shadow-md">-40%</span>
+                    </div>
+                    <h4 class="text-sm font-semibold leading-tight mb-1.5 line-clamp-2 group-hover:text-patu-600 transition-colors">Zapatillas Deportivas Rojas Ligeras</h4>
+                    <div class="flex items-end gap-2 mb-2">
+                        <p class="text-lg font-bold text-patu-600 leading-none">S/ 59.90</p>
+                        <p class="text-xs text-gray-400 line-through leading-none mb-0.5">S/ 99.90</p>
+                    </div>
+                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 40%"></div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-1.5 text-center font-medium">Vendidos: 120</p>
+                </div>
+
+                <div class="flex-shrink-0 w-36 md:w-44 bg-white rounded-xl p-2.5 text-gray-900 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative mb-3 aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Pantalón Jean">
+                        <span class="absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-2 py-1 rounded-full shadow-md">-35%</span>
+                    </div>
+                    <h4 class="text-sm font-semibold leading-tight mb-1.5 line-clamp-2 group-hover:text-patu-600 transition-colors">Pantalón Jean Clásico Azul Hombre</h4>
+                    <div class="flex items-end gap-2 mb-2">
+                        <p class="text-lg font-bold text-patu-600 leading-none">S/ 45.00</p>
+                        <p class="text-xs text-gray-400 line-through leading-none mb-0.5">S/ 69.90</p>
+                    </div>
+                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 60%"></div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-1.5 text-center font-medium">Vendidos: 85</p>
+                </div>
+
+                <div class="flex-shrink-0 w-36 md:w-44 bg-white rounded-xl p-2.5 text-gray-900 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative mb-3 aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Smartwatch">
+                        <span class="absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-2 py-1 rounded-full shadow-md">-60%</span>
+                    </div>
+                    <h4 class="text-sm font-semibold leading-tight mb-1.5 line-clamp-2 group-hover:text-patu-600 transition-colors">Smartwatch Deportivo Resistente al Agua</h4>
+                    <div class="flex items-end gap-2 mb-2">
+                        <p class="text-lg font-bold text-patu-600 leading-none">S/ 39.90</p>
+                        <p class="text-xs text-gray-400 line-through leading-none mb-0.5">S/ 99.90</p>
+                    </div>
+                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                    <p class="text-[10px] text-red-500 mt-1.5 text-center font-bold">¡Últimas 5 unidades!</p>
+                </div>
+                
+                <div class="flex-shrink-0 w-36 md:w-44 bg-white rounded-xl p-2.5 text-gray-900 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative mb-3 aspect-square overflow-hidden rounded-lg bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Audífonos">
+                        <span class="absolute top-1 right-1 bg-red-500 text-white text-[11px] font-bold px-2 py-1 rounded-full shadow-md">-45%</span>
+                    </div>
+                    <h4 class="text-sm font-semibold leading-tight mb-1.5 line-clamp-2 group-hover:text-patu-600 transition-colors">Audífonos Inalámbricos TWS Bluetooth</h4>
+                    <div class="flex items-end gap-2 mb-2">
+                        <p class="text-lg font-bold text-patu-600 leading-none">S/ 27.50</p>
+                        <p class="text-xs text-gray-400 line-through leading-none mb-0.5">S/ 50.00</p>
+                    </div>
+                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 70%"></div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-1.5 text-center font-medium">Vendidos: 340</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-gray-900 text-lg">Explorar Categorías</h3>
+                <button class="text-patu-600 text-sm font-medium flex items-center gap-1 hover:underline">
+                    Ver todas <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-2 min-[400px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center group-hover:bg-pink-200 transition-colors">
+                        <i data-lucide="shirt" class="w-8 h-8 text-pink-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Ropa Mujer</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                        <i data-lucide="user-check" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Ropa Hombre</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-indigo-200 transition-colors">
+                        <i data-lucide="footprints" class="w-8 h-8 text-indigo-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Calzado</span>
+                </button>
+
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-gray-700"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Tecnología</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                        <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Videojuegos</span>
+                </button>
+
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                        <i data-lucide="home" class="w-8 h-8 text-orange-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Hogar</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center group-hover:bg-teal-200 transition-colors">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-teal-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Belleza</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+                        <i data-lucide="cat" class="w-8 h-8 text-yellow-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Mascotas</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center group-hover:bg-red-200 transition-colors">
+                        <i data-lucide="dumbbell" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Deportes</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                        <i data-lucide="puzzle" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Juguetes</span>
+                </button>
+
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center group-hover:bg-stone-200 transition-colors">
+                        <i data-lucide="hammer" class="w-8 h-8 text-stone-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Ferretería</span>
+                </button>
+                <button class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 hover:shadow-lg hover:border-patu-200 active:scale-95 transition-all group aspect-square shadow-sm">
+                    <div class="w-16 h-16 rounded-full bg-patu-50 flex items-center justify-center group-hover:bg-patu-100 transition-colors">
+                        <i data-lucide="grid-3x3" class="w-8 h-8 text-patu-600"></i>
+                    </div>
+                    <span class="text-sm text-gray-700 font-semibold text-center">Más</span>
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-gray-900 text-lg">Recomendados para ti</h3>
+            </div>
+            </section>
+
+    </main>
+
+    <div id="cartDrawer" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cartContent">
+            <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                <h2 class="font-bold text-lg">Carrito de compras</h2>
+                <button onclick="closeCart()" class="p-2 hover:bg-gray-100 rounded-full transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="cartItems">
+                <div class="text-center text-gray-400 py-8">
+                    <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-3 opacity-50"></i>
+                    <p class="text-sm">Tu carrito está vacío</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 p-4 space-y-3 bg-gray-50">
+                <div class="flex justify-between text-lg font-bold pt-2">
+                    <span>Total</span>
+                    <span class="text-patu-600" id="total">S/ 0.00</span>
+                </div>
+                <button class="w-full bg-patu-500 hover:bg-patu-600 text-white font-bold py-3.5 rounded-xl transition-all">Proceder al pago</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 z-[70] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px]">
+        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+        </div>
+        <span class="text-sm font-medium" id="toastMessage">Producto agregado</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

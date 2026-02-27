@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Camiseta Polo Negro Básico - Patu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { patu: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 pb-12">
+
+    <header class="sticky top-0 z-50 glass-effect border-b border-gray-100">
+        <div class="px-4 py-3">
+            <div class="flex items-center justify-between gap-3 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-4 flex-shrink-0">
+                    <a href="index.html" class="flex items-center gap-2 cursor-pointer">
+                        <div class="w-10 h-10 bg-patu-500 rounded-lg flex items-center justify-center shadow-sm">
+                            <span class="text-white font-bold text-xl">P</span>
+                        </div>
+                        <span class="font-bold text-2xl text-patu-600 tracking-tight hidden lg:block">Patu</span>
+                    </a>
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-700 hover:text-patu-600 font-medium">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                            <span class="text-sm hidden md:block">Categorías</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 max-w-3xl relative">
+                    <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 gap-3 border border-transparent focus-within:border-patu-300 focus-within:bg-white transition-all shadow-sm">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                        <input type="text" placeholder="Buscar productos, marcas y más..." class="flex-1 bg-transparent outline-none text-sm text-gray-800 placeholder-gray-400 w-full py-1">
+                        <button class="p-1 hover:bg-gray-200 rounded-full transition-colors"><i data-lucide="camera" class="w-5 h-5 text-patu-500"></i></button>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1 md:gap-3 flex-shrink-0">
+                    <button class="hidden sm:flex items-center gap-1.5 bg-patu-500 text-white hover:bg-patu-600 px-4 py-2 rounded-full text-sm font-semibold transition-colors shadow-sm mr-2">
+                        <i data-lucide="package" class="w-4 h-4"></i>
+                        <span class="hidden md:block">Mayoristas</span>
+                    </button>
+                    <a href="profile.html" class="p-2 hover:bg-gray-100 rounded-full transition-colors relative group">
+                        <i data-lucide="user" class="w-6 h-6 text-gray-700 group-hover:text-patu-600"></i>
+                    </a>
+                    <button class="p-2 hover:bg-gray-100 rounded-full transition-colors relative group" onclick="openCart()">
+                        <i data-lucide="shopping-cart" class="w-6 h-6 text-gray-700 group-hover:text-patu-600"></i>
+                        <span id="cartBadge" class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-white hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        
+        <nav class="flex text-sm text-gray-500 mb-6 font-medium">
+            <a href="index.html" class="hover:text-patu-600 transition-colors">Inicio</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-patu-600 transition-colors">Ropa Hombre</a>
+            <span class="mx-2">/</span>
+            <a href="#" class="hover:text-patu-600 transition-colors">Polos y Camisetas</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-900">Polo Negro Básico</span>
+        </nav>
+
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col md:flex-row">
+            
+            <div class="w-full md:w-1/2 p-4 md:p-6 border-b md:border-b-0 md:border-r border-gray-100">
+                <div class="relative aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&q=80" alt="Polo Negro Frontal" class="w-full h-full object-cover" id="mainImage">
+                    <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-md hover:text-red-500 transition-colors">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </button>
+                    <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-white"></i> Oferta Flash
+                    </div>
+                </div>
+                
+                <div class="flex gap-3 overflow-x-auto hide-scrollbar">
+                    <button class="w-20 h-24 flex-shrink-0 rounded-lg overflow-hidden border-2 border-patu-500 opacity-100 transition-all">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Miniatura 1">
+                    </button>
+                    <button class="w-20 h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200 opacity-60 hover:opacity-100 transition-all">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Miniatura 2">
+                    </button>
+                    <button class="w-20 h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200 opacity-60 hover:opacity-100 transition-all">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Miniatura 3">
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col">
+                
+                <div class="mb-4">
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-2">Camiseta Polo Negro Básico 100% Algodón Peinado</h1>
+                    <div class="flex items-center gap-3 text-sm">
+                        <div class="flex items-center gap-1 bg-yellow-100 px-2 py-0.5 rounded text-yellow-700 font-bold">
+                            <i data-lucide="star" class="w-4 h-4 fill-yellow-500 text-yellow-500"></i> 4.8
+                        </div>
+                        <a href="#" class="text-patu-600 hover:underline">124 Opiniones</a>
+                        <span class="text-gray-300">|</span>
+                        <span class="text-gray-500">1.2k Vendidos</span>
+                    </div>
+                </div>
+
+                <div class="mb-5 p-4 bg-red-50 rounded-xl border border-red-100">
+                    <div class="flex items-end gap-3 mb-1">
+                        <span class="text-3xl font-bold text-red-600">S/ 19.90</span>
+                        <span class="text-lg text-gray-400 line-through mb-1">S/ 39.90</span>
+                        <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-1.5">-50%</span>
+                    </div>
+                    
+                    <p class="text-xs text-gray-600 mb-3 font-medium">+ S/ 9.90 de envío a Lima Metropolitana</p>
+
+                    <div class="flex items-center gap-2 text-xs text-red-600 font-bold">
+                        <i data-lucide="clock" class="w-4 h-4"></i> Termina en 02:45:30
+                    </div>
+                </div>
+
+                <div class="mb-6 py-3 px-4 bg-gray-50 rounded-xl border border-gray-100 space-y-2">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="truck" class="w-5 h-5 text-green-600"></i>
+                        <p class="text-sm font-medium text-gray-900">Llega entre el <span class="font-bold">Jueves y Viernes</span></p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="store" class="w-5 h-5 text-patu-600"></i>
+                        <p class="text-sm font-medium text-gray-900">Vendido por <a href="#" class="text-patu-600 font-bold hover:underline">Textil Gamarra Premium</a></p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-semibold text-gray-900">Color: <span class="text-gray-600 font-normal">Negro</span></span>
+                    </div>
+                    <div class="flex gap-3">
+                        <button class="w-10 h-10 rounded-full bg-black border-2 border-patu-500 shadow-sm ring-2 ring-transparent ring-offset-2"></button>
+                        <button class="w-10 h-10 rounded-full bg-white border border-gray-300 shadow-sm hover:scale-110 transition-transform"></button>
+                        <button class="w-10 h-10 rounded-full bg-gray-500 border border-gray-300 shadow-sm hover:scale-110 transition-transform"></button>
+                        <button class="w-10 h-10 rounded-full bg-blue-900 border border-gray-300 shadow-sm hover:scale-110 transition-transform"></button>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-semibold text-gray-900">Talla:</span>
+                        <a href="#" class="text-xs text-patu-600 hover:underline">Guía de tallas</a>
+                    </div>
+                    <div class="grid grid-cols-4 gap-3">
+                        <button class="py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:border-patu-500 hover:text-patu-600 transition-colors">S</button>
+                        <button class="py-2.5 border-2 border-patu-500 bg-patu-50 rounded-lg text-sm font-bold text-patu-600 transition-colors">M</button>
+                        <button class="py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:border-patu-500 hover:text-patu-600 transition-colors">L</button>
+                        <button class="py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:border-patu-500 hover:text-patu-600 transition-colors">XL</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-2 mt-auto">
+                    <div class="flex items-center justify-between border border-gray-300 rounded-xl px-2 h-12 w-full sm:w-32 flex-shrink-0">
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"><i data-lucide="minus" class="w-4 h-4"></i></button>
+                        <span class="font-semibold text-gray-900">1</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                    </div>
+                    
+                    <div class="flex-1 flex gap-3">
+                        <button class="flex-1 bg-patu-50 text-patu-600 font-bold h-12 rounded-xl border border-patu-200 hover:bg-patu-100 active:scale-95 transition-all flex items-center justify-center gap-2" onclick="addToCart(event)">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i> Agregar
+                        </button>
+                        <button class="flex-1 bg-patu-500 text-white font-bold h-12 rounded-xl shadow-lg shadow-patu-500/30 hover:bg-patu-600 active:scale-95 transition-all">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 md:p-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Descripción del Producto</h2>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                Renueva tu armario con nuestro polo básico de cuello redondo, confeccionado con el más fino algodón pima peruano. Su corte clásico y ajuste perfecto lo convierten en la prenda ideal para cualquier ocasión, brindando comodidad y estilo durante todo el día.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2 list-disc list-inside">
+                <li>Material: 100% Algodón peinado de tacto suave.</li>
+                <li>No se encoge ni destiñe tras el lavado.</li>
+                <li>Costuras reforzadas en cuello y hombros para mayor durabilidad.</li>
+                <li>Corte recto (Regular Fit) que se adapta a todo tipo de cuerpo.</li>
+                <li>Hecho 100% en Perú (Gamarra).</li>
+            </ul>
+        </div>
+    </main>
+
+    <div id="cartDrawer" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cartContent">
+            <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                <h2 class="font-bold text-lg">Carrito de compras</h2>
+                <button onclick="closeCart()" class="p-2 hover:bg-gray-100 rounded-full transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="cartItems">
+                <div class="text-center text-gray-400 py-8">
+                    <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-3 opacity-50"></i>
+                    <p class="text-sm">Tu carrito está vacío</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 p-4 space-y-3 bg-gray-50">
+                <div class="flex justify-between text-lg font-bold pt-2">
+                    <span>Total</span>
+                    <span class="text-patu-600" id="total">S/ 0.00</span>
+                </div>
+                <button class="w-full bg-patu-500 hover:bg-patu-600 text-white font-bold py-3.5 rounded-xl transition-all">Proceder al pago</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 z-[70] transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px]">
+        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"><i data-lucide="check" class="w-4 h-4 text-white"></i></div>
+        <span class="text-sm font-medium" id="toastMessage">Producto agregado</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
